@@ -1,24 +1,22 @@
+import javax.swing.*;
 import java.util.Scanner;
 import java.util.Random;
 
 public class GuessNumbers {
 
+    static JLabel resultText = new JLabel("");
     static int counter = 0;
     static Random random = new Random();
     static int myNumber = random.nextInt(10) +10; //random gibt zwischen 0 und 10 aus . danach wird die +10 dazu gerechnet
 
-    public static void guess() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Rate die richtige Nummer:");
-        int number = scanner.nextInt();
+    public static void guess(int number) {
         counter++;
         if(number == myNumber) {
-            if(counter == 1) System.out.println("Richtig geraten! Du hast " + counter + " Versuch gebraucht.");
-            else System.out.println("Richtig geraten! Du hast " + counter + " Versuche gebraucht.");
+            if(counter == 1) resultText.setText("<html>Richtig geraten!<br>Du hast " + counter + " Versuch gebraucht.</html>");
+            else resultText.setText("<html>Richtig geraten!<br>Du hast " + counter + " Versuche gebraucht.</html>");
         } else {
-            if(number > myNumber) System.out.println("Leider falsch. Die Zahl ist zu groß. Probiere es noch mal.");
-            else System.out.println("Leider falsch. Die Zahl ist zu klein. Probiere es noch mal.");
-            guess();
+            if(number > myNumber) resultText.setText("<html>Leider falsch. Die Zahl ist zu groß.<br>Probiere es noch mal.</html>");
+            else resultText.setText("<html>Leider falsch. Die Zahl ist zu klein.<br>Probiere es noch mal.</html>");
         }
     }
 

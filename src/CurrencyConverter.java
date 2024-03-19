@@ -16,8 +16,4 @@ public class CurrencyConverter {
         DecimalFormat df = new DecimalFormat("#.00"); // just for the 2 places after comma
         System.out.println(money + "€ are " + df.format(moneyInUsd) + "$.");
     }
-
-
-
-
 }
